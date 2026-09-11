@@ -37,7 +37,7 @@ pipeline {
 
         stage('Build Docker Images') {
             steps {
-                bat 'docker compose build'
+                bat 'docker-compose build'
                 bat 'docker build -t psbd/user-service:latest ./user-service'
                 bat 'docker build -t psbd/order-service:latest ./order-service'
             }
@@ -71,7 +71,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'docker compose up -d'
+                bat 'docker-compose up -d'
             }
         }
 
